@@ -4,10 +4,10 @@
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ k06a/OneXag",
-    "create-local": "graph create --node http://localhost:8020/ k06a/OneXag",
-    "remove-local": "graph remove --node http://localhost:8020/ k06a/OneXag",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 k06a/OneXag"
+    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ CryptoManiacsZone/OneXag",
+    "create-local": "graph create --node http://localhost:8020/ CryptoManiacsZone/OneXag",
+    "remove-local": "graph remove --node http://localhost:8020/ CryptoManiacsZone/OneXag",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 CryptoManiacsZone/OneXag"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.17.1",
