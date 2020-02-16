@@ -37,6 +37,7 @@ export function handleOpenPosition(event: OpenPositionEvent): void {
         entity.amount = event.params.amount;
         entity.stopLoss = event.params.stopLoss;
         entity.takeProfit = event.params.takeProfit;
+        entity.closed = false;
     }
 
     entity.save();
