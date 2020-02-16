@@ -1,0 +1,26 @@
+specVersion: 0.0.2
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Contract
+    network: mainnet
+    source:
+      startBlock: 9300000
+      abi: Contract
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - OpenPosition
+        - ClosePosition
+      abis:
+        - name: Contract
+          file: Contract/abis/Contract.json
+      eventHandlers:
+        - event: OpenPosition(indexed address,uint256,uint256,uint256)
+          handler: handleOpenPosition
+        - event: ClosePosition(indexed address,uint256)
+          handler: handleClosePosition
+      file: Contract/Contract.wasm
