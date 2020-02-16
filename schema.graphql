@@ -1,0 +1,9 @@
+type Positions @entity {
+  id: ID!
+  contract: Bytes! # address
+  owner: Bytes! # address
+  amount: BigInt!
+  stopLoss: BigInt!
+  takeProfit: BigInt!
+  closed: Boolean!
+}
