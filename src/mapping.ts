@@ -51,10 +51,8 @@ export function handleClosePosition(event: ClosePositionEvent): void {
 
     let entity = Positions.load(entity_id);
 
-    if (entity == null) {
-        entity = new Positions(entity_id);
+    if (entity != null) {
         entity.closed = true;
+        entity.save();
     }
-
-    entity.save();
 }
