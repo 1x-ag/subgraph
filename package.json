@@ -1,13 +1,13 @@
 {
-  "name": "OneXag",
-  "license": "UNLICENSED",
+  "name": "1x.ag",
+  "license": "MIT",
   "scripts": {
     "codegen": "graph codegen",
     "build": "graph build",
-    "deploy": "graph deploy --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ CryptoManiacsZone/OneXag",
-    "create-local": "graph create --node http://localhost:8020/ CryptoManiacsZone/OneXag",
-    "remove-local": "graph remove --node http://localhost:8020/ CryptoManiacsZone/OneXag",
-    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 CryptoManiacsZone/OneXag"
+    "deploy": "graph deploy --access-token ${GRAPH_ACCESS_TOKEN} --node https://api.thegraph.com/deploy/ --ipfs https://api.thegraph.com/ipfs/ 1x-ag/subgraph",
+    "create-local": "graph create --node http://localhost:8020/ 1x-ag/subgraph",
+    "remove-local": "graph remove --node http://localhost:8020/ 1x-ag/subgraph",
+    "deploy-local": "graph deploy --node http://localhost:8020/ --ipfs http://localhost:5001 1x-ag/subgraph"
   },
   "dependencies": {
     "@graphprotocol/graph-cli": "0.17.1",

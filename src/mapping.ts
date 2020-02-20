@@ -1,4 +1,4 @@
-import { BigInt, ByteArray, Bytes, crypto } from '@graphprotocol/graph-ts';
+import { ByteArray, Bytes, crypto } from '@graphprotocol/graph-ts';
 import { ClosePosition as ClosePositionEvent, OpenPosition as OpenPositionEvent } from '../generated/Contract/Contract';
 import { Positions } from '../generated/schema';
 
