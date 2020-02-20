@@ -1,6 +1,6 @@
 import { ByteArray, Bytes, crypto } from '@graphprotocol/graph-ts';
 import { ClosePosition as ClosePositionEvent, OpenPosition as OpenPositionEvent } from '../generated/Contract/Contract';
-import { Positions } from '../generated/schema';
+import { Position } from '../generated/schema';
 
 function padHex(hex: string, length: i32): string {
     if (hex.startsWith('0x')) {
@@ -16,21 +16,22 @@ function hashOfPosition(
     return crypto.keccak256(
         ByteArray.fromHexString(
             padHex(contract.toHex(), 40) +
-            padHex(owner.toHex(), 40)
+            padHex(owner.toHex().substr(2), 40)
         )
     );
 }
 
 export function handleOpenPosition(event: OpenPositionEvent): void {
+
     let entity_id = hashOfPosition(
         event.address,
         event.params.owner
     ).toHex();
 
-    let entity = Positions.load(entity_id);
+    let entity = Position.load(entity_id);
 
     if (entity == null) {
-        entity = new Positions(entity_id);
+        entity = new Position(entity_id);
 
         entity.contract = event.address;
         entity.owner = event.params.owner;
@@ -44,12 +45,13 @@ export function handleOpenPosition(event: OpenPositionEvent): void {
 }
 
 export function handleClosePosition(event: ClosePositionEvent): void {
+
     let entity_id = hashOfPosition(
         event.address,
         event.params.owner
     ).toHex();
 
-    let entity = Positions.load(entity_id);
+    let entity = Position.load(entity_id);
 
     if (entity != null) {
         entity.closed = true;

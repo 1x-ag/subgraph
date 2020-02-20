@@ -1,7 +1,7 @@
-type Positions @entity {
+type Position @entity {
   id: ID!
-  contract: Bytes! # address
-  owner: Bytes! # address
+  contract: Bytes!
+  owner: Bytes!
   amount: BigInt!
   stopLoss: BigInt!
   takeProfit: BigInt!
