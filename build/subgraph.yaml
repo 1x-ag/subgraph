@@ -3,10 +3,9 @@ schema:
   file: schema.graphql
 dataSources:
   - kind: ethereum/contract
-    name: ETHDAI2x
+    name: OneXag
     network: mainnet
     source:
-      address: "0x7778d1011e19C0091C930d4BEfA2B0e47441562A"
       startBlock: 9300000
       abi: Contract
     mapping:
@@ -18,33 +17,10 @@ dataSources:
         - ClosePosition
       abis:
         - name: Contract
-          file: ETHDAI2x/abis/Contract.json
+          file: OneXag/abis/Contract.json
       eventHandlers:
         - event: OpenPosition(indexed address,uint256,uint256,uint256)
           handler: handleOpenPosition
         - event: ClosePosition(indexed address,uint256)
           handler: handleClosePosition
-      file: ETHDAI2x/ETHDAI2x.wasm
-  - kind: ethereum/contract
-    name: DAIETH2x
-    network: mainnet
-    source:
-      address: "0x0b05ba1c72325b11b5553216c9e57257f82b71d8"
-      startBlock: 9300000
-      abi: Contract
-    mapping:
-      kind: ethereum/events
-      apiVersion: 0.0.3
-      language: wasm/assemblyscript
-      entities:
-        - OpenPosition
-        - ClosePosition
-      abis:
-        - name: Contract
-          file: DAIETH2x/abis/Contract.json
-      eventHandlers:
-        - event: OpenPosition(indexed address,uint256,uint256,uint256)
-          handler: handleOpenPosition
-        - event: ClosePosition(indexed address,uint256)
-          handler: handleClosePosition
-      file: ETHDAI2x/ETHDAI2x.wasm
+      file: OneXag/OneXag.wasm
