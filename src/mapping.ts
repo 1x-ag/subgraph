@@ -48,7 +48,7 @@ export function handleOpenPosition(event: OpenPositionEvent): void {
     let entity = Position.load(entity_id);
 
     if (entity) {
-        let oldEntity = new Position(entity_id + event.block.number.toString() + event.logIndex.toString());
+        let oldEntity = new Position(entity_id.concat(event.block.number.toString()).concat(event.logIndex.toString()));
         oldEntity.contract = entity.contract;
         oldEntity.owner = entity.owner;
         oldEntity.amount = entity.amount;
@@ -81,7 +81,7 @@ export function handleClosePosition(event: ClosePositionEvent): void {
     let entity = Position.load(entity_id);
 
     if (entity) {
-        let oldEntity = new Position(entity_id + event.block.number.toString() + event.logIndex.toString());
+        let oldEntity = new Position(entity_id.concat(event.block.number.toString()).concat(event.logIndex.toString()));
         oldEntity.contract = entity.contract;
         oldEntity.owner = entity.owner;
         oldEntity.amount = entity.amount;
