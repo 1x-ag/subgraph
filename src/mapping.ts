@@ -19,7 +19,7 @@ function isAllowedContract(contract: Address): boolean {
         ];
     }
 
-    return allowedContracts.indexOf(contract.toString()) !== -1;
+    return allowedContracts.indexOf(contract.toHexString()) !== -1;
 }
 
 function hashOfPosition(
